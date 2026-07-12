@@ -3,9 +3,10 @@ name: aigora-agents
 description: >
   AIgora intellectual dialogue, fiction writing, and game design system. Core 6 agents (Diverger, Literature 
   Reviewer, Yes And, Logician, Challenger, Synthesizer) with fixed speaking order. Gatekeeper for fiction 
-  writing stage transitions. 17 Writing Agents for fiction mode. 6 Game Design Agents for game design mode. 
+  writing stage transitions. EditorInChief + quality rubric for Autopilot (fully automated) fiction mode. 
+  17 Writing Agents for fiction mode. 6 Game Design Agents for game design mode. 
   Plus 82 specialist agents: Thinkers (17), Writers (26), Philosophers (22), Researchers (17). 
-  Triggers: AIgora, 召唤, 讨论, 小说, 写作, fiction, dialogue, 游戏设计, Game Design.
+  Triggers: AIgora, 召唤, 讨论, 小说, 写作, fiction, dialogue, 游戏设计, Game Design, 自动写作, autopilot.
 ---
 
 # AIgora Discussion System
@@ -29,13 +30,14 @@ Before any AIgora discussion, **MUST READ**: `references/core/aigora-system.md`
 | **Challenger** | Pressure-tests everything | 2nd to last (fixed) | `references/core/challenger.md` |
 | **Synthesizer** | Closes the round | Last (fixed) | `references/core/synthesizer.md` |
 
-### Process Control Agent (Fiction Mode Only)
+### Process Control Agents (Fiction Mode Only)
 
 | Agent | Role | When | File |
 |-------|------|------|------|
 | **Gatekeeper** | Controls stage transitions, surfaces key decisions | At stage transitions | `references/core/gatekeeper.md` |
+| **EditorInChief** | Author-proxy: answers Gatekeeper decisions in Autopilot mode, logs rationale | Autopilot mode only | `references/core/editor-in-chief.md` |
 
-Gatekeeper is NOT a discussion participant. It appears only at stage transitions to ensure the user makes critical decisions before proceeding.
+Gatekeeper is NOT a discussion participant. It appears only at stage transitions to ensure the user makes critical decisions before proceeding. In **Autopilot mode**, the EditorInChief answers in the user's place and every decision is logged (see below).
 
 ### Speaking Order
 
@@ -188,6 +190,25 @@ Gatekeeper asks about **real decisions**, not trivial choices:
 | Critique → Revision | Accept/reject revision items | Grammar details |
 
 If user says "continue" or "你决定", Gatekeeper proceeds with the direction favored in discussion.
+
+### Autopilot Mode（全自动模式）
+
+**Triggers**: 自动写作, 全自动小说, autopilot, "write it autonomously"
+
+**MUST READ before running**: `AUTOPILOT.md` (pipeline), `references/core/editor-in-chief.md`
+(author-proxy), `references/core/quality-rubric.md` (quality gate).
+
+The same fiction pipeline runs end-to-end without waiting for the user:
+
+| Manual mode | Autopilot mode |
+|-------------|----------------|
+| Gatekeeper waits for user at checkpoints | **EditorInChief** decides; rationale logged to `decisions.md` |
+| Vague final score | Rubric gate: total ≥ 48/60, every dimension ≥ 7, max 3 revision rounds |
+| Same-context critique | 3 **blind parallel reviewers** (fresh contexts/subagents), median scores |
+| Memory = conversation | Project files: `projects/<slug>/` (story bible, outline, continuity ledger) |
+
+Human is consulted ONLY on: gate failure after 3 revision rounds, value-laden material,
+decisions the brief reserves, or the brief itself. Everything else is decided and logged.
 
 ### Writing Agents (17) — `references/writing/`
 
@@ -454,12 +475,16 @@ Total: 9 agents
 | Category | Index | Count |
 |----------|-------|-------|
 | Core System | `references/core/aigora-system.md` | 1 |
+| Autopilot Pipeline | `AUTOPILOT.md` | 1 |
 | Core 6 | `references/core/` | 6 |
 | Gatekeeper | `references/core/gatekeeper.md` | 1 |
+| EditorInChief | `references/core/editor-in-chief.md` | 1 |
+| Quality Rubric | `references/core/quality-rubric.md` | 1 |
+| Project Templates | `projects/_template/` | 4 |
 | Game Design | `references/gamedesign/index.md` | 6 |
 | Writing | `references/writing/index.md` | 17 |
 | Thinkers | `references/thinkers/index.md` | 17 |
 | Philosophers | `references/philosophers/index.md` | 22 |
 | Writers | `references/writers/index.md` | 26 |
 | Researchers | `references/researchers/index.md` | 17 |
-| **Total Agents** | | **113** |
+| **Total Agents** | | **114** |

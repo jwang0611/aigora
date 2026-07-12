@@ -62,6 +62,16 @@ User Input
 - Core 3 (Diverger, Challenger, Synthesizer) + 6 Game Design Agents
 - Visionary → MechanicSmith → Economist → Psychologist → Breaker → Producer
 
+**Autopilot Mode** (triggers: 自动写作, autopilot) — see `AUTOPILOT.md`
+- The fiction pipeline, fully automated: the **EditorInChief** agent answers every Gatekeeper
+  checkpoint in the author's place, logging each decision with rationale to `decisions.md`
+- Quantified quality gate (`references/core/quality-rubric.md`): 6 dimensions × 10 points,
+  pass at ≥ 48/60 with no dimension < 7, max 3 revision rounds
+- Blind critique by 3 parallel fresh-context reviewers (subagents in Claude Code), median scores
+- On-disk project memory: `projects/<slug>/` (story bible, outline, continuity ledger, chapters)
+- Humans are consulted only on: gate failure after 3 rounds, value-laden material, decisions the
+  brief reserves, or the brief itself
+
 ## Fiction Writing Pipeline
 
 Fiction writing follows a structured pipeline with **Gatekeeper** controlling stage transitions:
@@ -227,8 +237,8 @@ User: Summon a game design Aigora to discuss whether the randomness of this card
 
 | Language | Triggers |
 |----------|----------|
-| Chinese | 召唤AIgora, 讨论, 小说, 写作, 游戏设计 |
-| English | AIgora, dialogue, fiction, creative writing, game design |
+| Chinese | 召唤AIgora, 讨论, 小说, 写作, 游戏设计, 自动写作 |
+| English | AIgora, dialogue, fiction, creative writing, game design, autopilot |
 
 ## Design Principles
 
