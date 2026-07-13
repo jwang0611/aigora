@@ -4,9 +4,11 @@ description: >
   AIgora intellectual dialogue, fiction writing, and game design system. Core 6 agents (Diverger, Literature 
   Reviewer, Yes And, Logician, Challenger, Synthesizer) with fixed speaking order. Gatekeeper for fiction 
   writing stage transitions. EditorInChief + quality rubric for Autopilot (fully automated) fiction mode. 
-  17 Writing Agents for fiction mode. 6 Game Design Agents for game design mode. 
+  Longform pipeline for million-character novels (文学向/网文向 dual track). 
+  19 Writing Agents for fiction mode. 6 Game Design Agents for game design mode. 
   Plus 82 specialist agents: Thinkers (17), Writers (26), Philosophers (22), Researchers (17). 
-  Triggers: AIgora, 召唤, 讨论, 小说, 写作, fiction, dialogue, 游戏设计, Game Design, 自动写作, autopilot.
+  Triggers: AIgora, 召唤, 讨论, 小说, 写作, fiction, dialogue, 游戏设计, Game Design, 自动写作, autopilot, 
+  长篇, 百万字, webnovel.
 ---
 
 # AIgora Discussion System
@@ -210,7 +212,23 @@ The same fiction pipeline runs end-to-end without waiting for the user:
 Human is consulted ONLY on: gate failure after 3 revision rounds, value-laden material,
 decisions the brief reserves, or the brief itself. Everything else is decided and logged.
 
-### Writing Agents (17) — `references/writing/`
+### Longform Mode（长篇模式）
+
+**Triggers**: 长篇, 百万字, 网文长篇, long-form novel, webnovel, million-character novel — or
+any work longer than ~30 chapters / ~5万字.
+
+**MUST READ before running**: `LONGFORM.md` (pipeline — inherits and overrides `AUTOPILOT.md`),
+`references/core/longform-quality-gates.md` (gate ladder, authoritative),
+`references/core/quality-rubric.md` + `references/core/webnovel-rubric.md` (dual-track rubrics),
+the Longform Addendum in `references/core/editor-in-chief.md` (Scale Doctrine).
+
+Autopilot scaled to 100万字+: the **volume（卷）** becomes the unit of outlining, gating, blind
+review, and memory compaction; tiered on-disk memory keeps every drafting context ~constant; the
+brief's target scale is a hard constraint met by commissioning story, never padding. Tracks:
+文学向 / 网文向 (declared in the brief). SerialArchitect is mandatory; HookMaster joins on the
+webnovel track. Templates: `projects/_template/longform/`.
+
+### Writing Agents (19) — `references/writing/`
 
 #### Mandatory (6 - Always included)
 
@@ -230,6 +248,13 @@ decisions the brief reserves, or the brief itself. Everything else is decided an
 | **Conception** | idea, 构思, 大纲, outline | Muse, WorldBuilder, PlotArchitect, RelationshipMapper |
 | **Drafting** | 写, scene, chapter, draft | DialogueMaster, ScenePainter, Narrator, PaceMaster |
 | **Revision** | 修改, revise, edit, polish | ProsePolisher, SymbolWeaver, OpeningHook, PaceMaster |
+
+#### Longform (2 — see `references/core/aigora-system.md` for webnovel-track stage variants)
+
+| Agent | Role | When |
+|-------|------|------|
+| **SerialArchitect** | Volume/book-scale architecture, promise registry, escalation ladders | Mandatory in longform mode |
+| **HookMaster** | Chapter-end hooks, anticipation, 爽点 cadence | Webnovel track（网文向）only |
 
 ### Writing Agent Speaking Order
 
@@ -251,7 +276,7 @@ decisions the brief reserves, or the brief itself. Everything else is decided an
 
 ---
 
-## Specialist Agents (75 Total)
+## Specialist Agents (82 Total)
 
 Add based on topic. They speak in the flexible middle zone.
 
@@ -307,6 +332,8 @@ Add based on topic. They speak in the flexible middle zone.
 |--------------|------|--------|
 | 讨论X, analyze, AIgora | General | Core 6 + Specialists |
 | 写小说, fiction, 场景 | Fiction | Core 6 + Writing 10 + Specialists |
+| 自动写作, autopilot, 全自动小说 | Autopilot | Fiction agents + EditorInChief (read `AUTOPILOT.md`) |
+| 长篇, 百万字, webnovel, 网文长篇 | Longform | Autopilot agents + SerialArchitect (+ HookMaster on 网文轨) — read `LONGFORM.md` |
 | 游戏设计, Game Design, 游戏机制 | Game Design | Core 3 + Game Design 6 |
 
 ### Step 2: Identify Topic → Select Specialists
@@ -476,15 +503,19 @@ Total: 9 agents
 |----------|-------|-------|
 | Core System | `references/core/aigora-system.md` | 1 |
 | Autopilot Pipeline | `AUTOPILOT.md` | 1 |
+| Longform Pipeline | `LONGFORM.md` | 1 |
 | Core 6 | `references/core/` | 6 |
 | Gatekeeper | `references/core/gatekeeper.md` | 1 |
 | EditorInChief | `references/core/editor-in-chief.md` | 1 |
 | Quality Rubric | `references/core/quality-rubric.md` | 1 |
-| Project Templates | `projects/_template/` | 4 |
+| Webnovel Rubric | `references/core/webnovel-rubric.md` | 1 |
+| Longform Quality Gates | `references/core/longform-quality-gates.md` | 1 |
+| Project Templates (short form) | `projects/_template/` | 4 |
+| Project Templates (longform) | `projects/_template/longform/` | 11 |
 | Game Design | `references/gamedesign/index.md` | 6 |
-| Writing | `references/writing/index.md` | 17 |
+| Writing | `references/writing/index.md` | 19 |
 | Thinkers | `references/thinkers/index.md` | 17 |
 | Philosophers | `references/philosophers/index.md` | 22 |
 | Writers | `references/writers/index.md` | 26 |
 | Researchers | `references/researchers/index.md` | 17 |
-| **Total Agents** | | **114** |
+| **Total Agents** (Core 6 + Gatekeeper + EditorInChief + Writing 19 + Game Design 6 + Specialists 82) | | **115** |
