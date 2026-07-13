@@ -52,3 +52,15 @@
   depends-on: vol-01 digest。章均上调 ~4,500–4,800（补全书至~5万，禁注水）。
 - **卷二起草加载 style-anchor**：具名三条本书 AI 腔须规避；变奏章末落法（逐 beat 指定）。
 - **人工介入点D-004 执行位**：ch10 钟阿婆交出名册后离谷（不殉）。
+
+## D-010 · L1 GATE 卷二验收（round 1）
+- **决策**: 卷二《没顶》PASS（封卷）。中位 68/80（R1 69 / R2 59 漂移 / R3 70），各维≥8。
+- **R3 5条连续性 Must Fix + R1 接缝 Must Fix，已清**：CF-01 reader-recap 日期改八月十四（**驳回 R3"七月十五正确"**：唐山地震1976-07-28＝农历六月初二 ⇒ 六月十九＝八月十四，卷一正解）；CF-02 水位链改单调 ch09≈282→ch10≈285→ch11 302-326；CF-03/04 钟阿婆离村（车/时辰/交册时点）ch11 对齐 ch10；CF-05 老浔口桩高程 ch07 改≈251（合 ch12 的251.476）；CF-06 ch07→ch08 接缝内解脱困。
+- **R2 声纹漂移 Must Fix（对照 style-anchor 命中 tell#2/#3），已清**：DF-01 删 ch09/ch10"补面＝名册空条"叙述者等号；DF-02 "水无声涨"意象四处留一、"像核单子"两处留一；DF-03 ch07 两处段末对称金句删。
+- **主编裁决**：ch03"二三十"vs ch12"十几个"空条数——属"随手估 vs 守册后精点"，内部各自自洽（327总/310有葬处/十几无坟），接受为口径差，不改。
+- **quality debts**: 无。
+
+## D-011 · V.COMPACT 卷二封存（全书收官）
+- vol-02-digest（≤2500）；reader-recap 更新至 through vol2（全书，供 L2）；registry 全部 PROM Paid（**闭合100%**，"江"姓 red herring closed）；entities End-of-vol-2；timeline 卷二；ledger 归档（Amendments 记 round1）。
+- **守恒检查**：伏笔 6/6 pay + PROM-002；≥3章实体均有文件；无未登记未回收。PASS。
+- git tag: v02-compacted。

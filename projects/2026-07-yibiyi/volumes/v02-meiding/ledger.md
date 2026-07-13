@@ -1,6 +1,9 @@
-# Volume Ledger — 《一比一》 vol 2: 没顶
+# Volume Ledger — 《一比一》 vol 2: 没顶  【ARCHIVED @ v02-compacted】
 
-<!-- Volume-scoped fact ledger, appended per chapter. -->
+<!-- 冷卷账本，禁止起草加载。Amendments 段登记回溯修订。 -->
+
+## Amendments
+- round1 修订：CF-01..06（日期八月十四/桩高程251/接缝内解/水位链282→285→302-326/离村对齐）、DF-01..03（去补面等号·去水意象回收·去金句）。详 scores.md。
 
 ## 承接卷一（entry, D≈40）
 - 江照知己身世、已留下、已手写"钟满"；钟阿婆不知江照身世/号牌；名册一本(牛皮纸包皮)；祠堂梁北端黑未解；

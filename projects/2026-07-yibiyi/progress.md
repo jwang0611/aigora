@@ -1,14 +1,10 @@
 # Progress — 《一比一》
 
-<!-- Cap 600字. 每个原子动作后覆写。 -->
-
-**Mode**: LONGFORM autopilot
-**Track**: 文学向
-**Stage**: L2 V.OUTLINE (vol 02)
-**Last completed**: 卷一《测绘》L1 PASS（中位65/80，MF 清零）+ V.COMPACT（digest/style-anchor/entities/timeline）+ tag v01-compacted
-**Next action**: 写 volumes/v02-meiding/outline.md（depends-on: vol-01-digest），锁卷二纲，起草 ch07-12
-**Volume states**: v01 COMPACTED | v02 UNOUTLINED
-**Open Must Fixes**: none（卷一 MF-01..04 已清）
-**Pending escalations / reserved decisions**: none
-**Gate history**: v01 PASS r1（连续性 MF×4 已修）
-**全书字数**: 卷一 21,317 / 目标~5万；卷二需 ~26–28k（章均上调补足并避免注水）
+**Mode**: LONGFORM autopilot   **Track**: 文学向
+**Stage**: L3 BOOK ASSEMBLY（准备 L2 书级终审 + 导出）
+**Last completed**: 卷二《没顶》L1 PASS r1（中位68/80，CF/DF 清零）+ V.COMPACT + tag v02-compacted
+**Next action**: L2 书级盲评（B1-B6 + 分层抽样 + 分卷链式扫描）→ 导出 final/一比一.md + final-assessment.md
+**Volume states**: v01 COMPACTED | v02 COMPACTED（全书完稿）
+**Open Must Fixes**: none
+**Gate history**: v01 PASS r1（连续性MF×4）| v02 PASS r1（连续性MF×5 + 漂移MF×3）
+**全书**: 46,240字 / 12章 / 2卷；伏笔闭合100%
