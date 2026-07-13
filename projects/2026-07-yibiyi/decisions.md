@@ -32,3 +32,17 @@
 - **决策**: 锁 volumes/v01-cehui/outline.md（6 beat=6章，出口=江照认出钟满/那一夜、决定留下）。
   depends-on 无（首卷）。burn-rate 基准：卷一 ~2.5万字 / 3个里程碑。
 - **理由**: 逐章给出 entry/exit 与 ledger-critical facts，供 ch02-06 并行起草保持连续；关键时刻5处锁定。
+
+## D-007 · L1 GATE 卷一验收（round 1）
+- **决策**: 卷一《测绘》PASS（封卷）。中位 65/80，各维≥8（最弱 Structure/Character/Prose/Orig/Emo/VolArc/Serial=8，Thematic=9）。
+- **R3 盲评发现 4 条无条件连续性 Must Fix，已清零**：MF-01 坟地坡顶高程改330(>326)；MF-02 周晏迁坟时间线统一(ch04 D71 实迁, ch01/ch02 改备/清树, ch06"个把月前")；MF-03 农历丙辰六月十九→公历八月十四、地方志八月中旬；MF-04 钟阿婆年龄统一78。
+- **SF 采纳**：SF-01(14 vs 二三十→决口那夜过半)、SF-02(何广仁衣冠冢未经验看故葬处空)、SF-03(册子归一)、SF-04(ch03 轻铺垫钟阿婆个人失亲)、SF-05(压缩 ch02/ch03/ch06 主题解说)。
+- **驳回**：R2"ch03'我姓江'过早电报"——保留（R1 认其为最强钩子；属身世线）。
+- **主编裁决记录（cost）**：品味分已达标、修订仅为客观连续性+去解说，故以机械复审(grep 全绿)确认，不触发全量三评重跑。
+- **quality debts**: 无。
+
+## D-008 · V.COMPACT 卷一封存
+- 写 memory/digests/vol-01-digest.md（≤2500字）；entities 追加 End-of-vol-1；timeline 追加卷一；ledger 标 ARCHIVED。
+- **style-anchor 建立**（book/style-anchor.md）：取卷一过门文本三段（叙述/对白/动作）+ 具名三条本书易犯 AI 腔（供卷二规避）。
+- **守恒检查（KnowledgeAuditor）**：卷一无坟空条未新增未回收伏笔进 registry（PROM 结构不变，PROM-002 已 Paid）；出现≥3章的实体(江照/钟阿婆/周晏/南屿)均有 entity 文件。PASS。
+- git tag: v01-compacted。

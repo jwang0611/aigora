@@ -1,6 +1,11 @@
-# Volume Ledger — 《一比一》 vol 1: 测绘
+# Volume Ledger — 《一比一》 vol 1: 测绘  【ARCHIVED @ v01-compacted】
 
-<!-- Volume-scoped fact ledger, appended per chapter. ARCHIVED at V.COMPACT. -->
+<!-- 冷卷账本，禁止起草加载；后续事实活在 digest/entities/registry/timeline。
+     回溯修订仅经 Retro-Edit 协议，并在下方 Amendments 段登记。 -->
+
+## Amendments（回溯修订登记）
+- （无）
+
 
 ## 立定事实（世界/设定）
 - 时间 2029；南屿村，浔江河谷；南岭引水枢纽将蓄水淹没；倒计时开篇=97天（ch01），卷末≈40天（ch06）。
