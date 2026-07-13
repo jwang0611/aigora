@@ -46,3 +46,9 @@
 - **style-anchor 建立**（book/style-anchor.md）：取卷一过门文本三段（叙述/对白/动作）+ 具名三条本书易犯 AI 腔（供卷二规避）。
 - **守恒检查（KnowledgeAuditor）**：卷一无坟空条未新增未回收伏笔进 registry（PROM 结构不变，PROM-002 已 Paid）；出现≥3章的实体(江照/钟阿婆/周晏/南屿)均有 entity 文件。PASS。
 - git tag: v01-compacted。
+
+## D-009 · V.OUTLINE 卷二锁定
+- **决策**: 锁 volumes/v02-meiding/outline.md（6 beat=ch07-12；出口＝没顶+带钟满之名过水+签收+号牌"用途"填字）。
+  depends-on: vol-01 digest。章均上调 ~4,500–4,800（补全书至~5万，禁注水）。
+- **卷二起草加载 style-anchor**：具名三条本书 AI 腔须规避；变奏章末落法（逐 beat 指定）。
+- **人工介入点D-004 执行位**：ch10 钟阿婆交出名册后离谷（不殉）。
