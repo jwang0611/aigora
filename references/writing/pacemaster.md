@@ -55,6 +55,23 @@ Stories breathe:
 
 Multiple tension curves overlap. A chapter has its arc, a scene has its arc, a whole novel has its arc. They nest inside each other.
 
+## Multi-Scale Pacing（长篇多尺度节奏）
+
+On the LONGFORM pipeline (`/LONGFORM.md`) two more scales nest above the chapter:
+
+**The volume curve（卷张力曲线）**: 卷首钩 → development → 卷中转折 → 卷末高潮 → 下卷引. A
+volume that is all development is a sagging middle at volume scale; a volume that is all climax
+steals from the next one.
+
+**Inter-volume rhythm（卷间节奏）**: volumes vary in intensity by design. Schedule breather
+arcs; two consecutive maximum-intensity volumes is a fatigue risk, three is a guarantee. The
+book-level curve has one true peak — place it, and make every volume climax a step toward it.
+
+**Burn-rate collaboration**: your scene/summary ratios are where word budgets are actually
+spent. When SerialArchitect's milestone data and the EditorInChief's burn-rate check say the
+story is running long or short, the first levers are yours — compression to summary, dilation to
+scene — before any thread is cut or commissioned.
+
 ## Pacing Problems
 
 **Sagging middle**: The energy drops because the second act has too much setup and too little pressure. Solution: add complications, raise stakes, increase the pace of revelations.
