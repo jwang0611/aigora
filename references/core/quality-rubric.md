@@ -87,6 +87,12 @@ Distance from both genre default and machine default.
 - **9** — A reader could not guess the premise from the first page, nor the ending from the
   premise—yet both feel inevitable afterward.
 
+**Macro-scale note（过度确定 / over-closure）**: at volume/book scale the machine default is
+not a bad sentence but perfect bookkeeping — every setup paid exactly, every symbol回收, every
+account balanced, all chapters at one amplitude. "Nothing left open" is a defect of Originality
+at scale, not a virtue of craft. (Counterweight mechanisms: `open-by-design` promise status;
+the EditorInChief's Against Over-Closure mandate.)
+
 ## The Literary Module（文学模块）
 
 ### 5. Emotional Impact（情感冲击）
@@ -174,6 +180,9 @@ Scored in addition to the Core 4 + Literary module at the gates defined in
   promises pay on schedule and in proportion to their buildup.
 - **9** — Payoffs braid: late payoffs recontextualize early ones; in hindsight every plant looks
   inevitable, none looked like a plant.
+- *Caveat: 9 rewards braiding, not total closure. Promises marked `open-by-design`（有意留白,
+  EditorInChief-logged）count as consciously released; a ledger that balances to zero at every
+  level is itself a machine tell (see the Originality macro-scale note).*
 
 **B3. Character Continuity（人物长线）**
 - **4** — Characters reset between volumes; growth is stated, then ignored; late-book behavior
@@ -207,6 +216,8 @@ Scored in addition to the Core 4 + Literary module at the gates defined in
   answered by the person the protagonist became, and the feeling persists past the last page.
 - **9** — The ending is both unguessable from the premise and, in hindsight, the only ending the
   book was ever paying for — at full million-character weight.
+- *Caveat: full-weight resolution does not require closing every account at the same amplitude;
+  an earned incompleteness is compatible with — often necessary for — a 9.*
 
 ## Blind-Scoring Protocol (Autopilot Mode)
 
@@ -220,7 +231,11 @@ justified. In Autopilot mode:
    hostile craft critic (Challenger + AIDetox lens), and a structural analyst (PlotArchitect +
    KnowledgeAuditor lens).
 3. The recorded score per dimension is the **median** of the three.
-4. Continuity/knowledge violations found by any reviewer are Must Fix regardless of scores.
+4. Continuity/knowledge violations found by any reviewer enter the gate as **Must Fix** items
+   regardless of scores — gate-blocking until resolved by EditorInChief adjudication (verified
+   against the text, and against ground truth where checkable; applied, or 驳回'd with logged
+   evidence), **never auto-applied**. Long-form semantics: `longform-quality-gates.md`, Must Fix
+   semantics.
 5. All three raw reports are saved to `critiques/` in the project directory; the median sheet goes
    in `scores.md`.
 

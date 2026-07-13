@@ -22,6 +22,11 @@ novel. Also: any work longer than ~30 chapters or ~5万字 must run on this pipe
 Scale defaults: ~3,000字/章; 22–28 章/卷 (≈7–8.5万字, **hard cap 10万字/卷**); 12–14 卷 →
 300+ chapters, 100万+字.
 
+These norms are defaults for full-scale briefs. A brief may declare a smaller **pilot scale**
+(e.g. 5万字/2卷 流程测试); the EditorInChief proportionally shrinks the 章/卷 norms and the
+burn-rate baseline (logged in `decisions.md`). Gate mechanics, thresholds, and revision caps
+never shrink with scale.
+
 ## Why This Architecture: The Token Budget（架构依据）
 
 Conversion: 1 汉字 ≈ 1.5 tokens.
@@ -57,10 +62,14 @@ L2 VOLUME LOOP    for M = 1..K:
    ↓                ★ EditorInChief locks vol-M outline; may amend PROVISIONAL rows (logged);
    ↓                  Core amendments only here (logged; ending-direction change → escalate);
    ↓                  runs the burn-rate check (Scale Doctrine)
-   V.DRAFT          Chapter loop: draft per the loading manifest → update ledger → L0 check →
-   ↓                update recap → update progress → git commit. Voice spot-check at ch ~13
-   V.AUDIT          Fresh-context KnowledgeAuditor: full volume text vs volume ledger + entity
-   ↓                files + timeline; verifies ledger completeness and reader-recap accuracy
+   V.DRAFT          Chapter loop (serial default; sanctioned parallel variant — see Drafting
+   ↓                Modes): draft per the loading manifest → update ledger → L0 check →
+   ↓                update recap → update progress → git commit. Vol 1: EditorInChief drafts
+   ↓                ch001 in the main context as the voice seed. Voice spot-check at ch ~13
+   V.AUDIT          Seam audit first if any chapter was parallel-drafted; then fresh-context
+   ↓                KnowledgeAuditor: full volume text vs volume ledger + entity files +
+   ↓                timeline; verifies ledger completeness and reader-recap accuracy; computes
+   ↓                burn-rate R from actual chapter word counts vs the volume's milestones
    V.REVIEW         L1 volume blind review (3 parallel fresh reviewers) + non-blind mechanical
    ↓                audits. Vol 1: ≤3 revision rounds; vols 2+: ≤2. Gates: longform-quality-gates.md
    V.COMPACT        Compaction protocol (below) ★ EditorInChief signs off; volume-lock（封卷）;
@@ -115,6 +124,45 @@ cold source into drafting.
 Every cap above has a named compaction rule (below, or the file's own template). **A hot file
 over its cap blocks the next chapter until compacted.**
 
+## Drafting Modes: Serial and Parallel（串行与并行起草）
+
+**Serial is the default.** Ledger-as-memory guarantees continuity only when chapter N loads
+chapter N−1's final text plus the up-to-date ledger. Field-tested consequence of skipping this:
+non-monotonic water levels, contradictory retellings of the same departure, dropped chapter-end
+cliffhangers — caught only by the blind-review safety net, which is salvage, not a guarantee.
+
+**Parallel drafting is a sanctioned variant** (EditorInChief-logged per volume in
+`decisions.md`). It trades drafting latency for a mandatory audit pass and residual seam risk.
+Conditions — all four, or parallel is forbidden for that volume:
+
+1. **Beat contracts**: the volume outline carries per-beat `entry:`/`exit:` physical-state
+   contracts（时辰/倒计时、地点、在场者、关键物理量如水位、关键道具持有）plus a volume-level
+   **单调量声明** (quantities that may only rise or only fall across the volume). No contracts,
+   no parallel.
+2. **Manifest delta**: each parallel drafter replaces the "Chapter N−1 full text" manifest row
+   with its own beat's contracts + both adjacent beats' contracts (already inside `outline.md`).
+   Everything else loads unchanged. Vol 1 only: ch001's full text (the voice seed) loads in the
+   style-anchor slot until the anchor exists.
+3. **Ledger merge**: each drafter returns chapter text + that chapter's ledger lines; the main
+   context merges the lines in chapter order, then runs the L0 check per chapter post-merge.
+   Commits stay one-per-chapter, in order.
+4. **Seam audit** (below) runs before V.AUDIT, mandatorily.
+
+### The Seam Audit（接缝审计）
+
+Mandatory whenever ANY chapter was drafted without loading its predecessor's final text. Run by
+KnowledgeAuditor (main context or a fresh subagent) over the assembled volume + the outline's
+beat contracts; findings are fixed in-context before V.AUDIT. Four checks:
+
+1. **Entry/exit alignment**: every chapter's opening state matches the previous chapter's
+   closing state, and both match the beat contracts.
+2. **Monotonic quantities**: every declared 单调量 (water levels, countdowns, dates) never
+   regresses across the chapter sequence.
+3. **Repeated-event consistency**: any event narrated or referenced in ≥2 chapters (departures,
+   handovers, deaths) agrees on its facts — vehicle, time, participants, objects.
+4. **Hooks resolve-or-carry**: every chapter-end hook is either resolved or explicitly picked up
+   by the next chapter; no dropped cliffhangers.
+
 ## The Compaction Protocol（V.COMPACT — run when volume M passes its gate）
 
 Executed by the EditorInChief + KnowledgeAuditor, in order:
@@ -136,10 +184,15 @@ Executed by the EditorInChief + KnowledgeAuditor, in order:
 6. **Rewrite `memory/reader-recap.md`** (≤8,000字, rolling compression): as for a reader who
    binge-read volumes 1..M — events as experienced, character states as perceived, the "读者悬而
    未决的问题" list. Strip rule: no intent, no plans, no future events, no scores, no discussion
-   history.
-7. **Conservation check** (KnowledgeAuditor): unpaid-promise count in the archived ledger ==
-   newly added registry entries; every entity appearing in ≥3 chapters of vol M has an entity
-   file.
+   history. Rolling compression reuses prior recap text — verify every fact a revision or
+   retro-edit changed against the final text, never against the previous recap.
+7. **Conservation + cap check** (KnowledgeAuditor): unpaid-promise count in the archived ledger
+   == newly added registry entries; every entity appearing in ≥3 chapters of vol M has an entity
+   file; **and a blocking cap audit — measure (never eyeball; `wc -m`) every memory file against
+   its cap: digest ≤2,500字, style-anchor ≤1,500字, reader-recap ≤8,000字, recap ≤1,000字,
+   entity ≤800字 each, progress ≤600字. Any over-cap file is compressed before compaction signs
+   off — step 8 is blocked until this audit is green.** (Field data: without the mechanical
+   check, the first live run shipped digests at 2× their cap.)
 8. EditorInChief logs the compaction in `decisions.md`; commit + tag `vM-compacted`.
 
 Paid promises are marked ✓ and moved to the registry's `## Paid` section (never loaded during
@@ -167,19 +220,28 @@ resume deterministic. Contents:
 `vol07-ch163: draft 章名`); tags `vM-outline-locked`, `vM-draft-complete`, `vM-gate-pass`,
 `vM-compacted`. Retro-edits commit as `retro(v03-ch054): reason [MF-12]`.
 
+Tags are **best-effort**: some remotes reject tag pushes. A failed tag push is logged and
+skipped — never retried in a loop, never blocks the pipeline. The authoritative gate history is
+`progress.md` (the Gate history line) + `decisions.md`; tags are a convenience index only.
+
 ## Retro-Edit Protocol（回溯修订）
 
 Editing a locked (compacted) volume is allowed only against (a) a recorded Must Fix or (b) an
 EditorInChief-logged minimal-diff retcon required by a commissioned arc. Every retro-edit commit
-MUST update, in the same commit, all three of:
+MUST update, in the same commit, all four of:
 
 1. the archived ledger's **Amendments** section,
 2. the volume's **digest**,
-3. every affected **entity file**.
+3. every affected **entity file**,
+4. **`memory/reader-recap.md`** — whenever the edit changes any reader-visible fact. The recap
+   is fed to every downstream blind reviewer; one stale value poisons every future review
+   (field case: a date fixed in locked text survived in the recap and generated a false
+   contradiction report one volume later). If no reader-visible fact changed, note
+   `recap: no impact` in the commit message.
 
-This triple-update is what keeps memory truthful after edits to cold volumes. KnowledgeAuditor
-then runs the ripple check (diff vs ledger + downstream digests); the reader-recap is refreshed
-if reader-visible facts changed. Locked text is never re-scored.
+This quadruple-update（四联更新）is what keeps memory truthful after edits to cold volumes.
+KnowledgeAuditor then runs the ripple check (diff vs ledger + downstream digests +
+reader-recap). Locked text is never re-scored.
 
 ## Voice-Drift Control（声纹漂移控制）
 
@@ -223,7 +285,8 @@ projects/2027-01-example/
 │       ├── scores.md          # L1 sheets, quality debts
 │       ├── critiques/         # Raw blind reports per round
 │       └── chapters/          # 001-<题名>.md ... (GLOBAL chapter numbering)
-└── final/                     # Assembled book + final assessment
+└── final/                     # Assembled book (<title>.md, per-卷 files), blind book
+                               #   reviews (L2-review-R1.md .. R3.md), final-assessment.md
 ```
 
 ## Quality Gates
@@ -276,8 +339,13 @@ context.
 - **PROVISIONAL-row ossification**: treating the conception-time sketch of volume 11 as locked.
   Provisional rows exist to be rewritten at every volume boundary as the book teaches you what
   it is.
-- **Retro-edit without the triple-update**: an edit to a cold volume that skips the
-  ledger-amendment/digest/entity update makes every future audit lie.
+- **Retro-edit without the 四联更新**: an edit to a cold volume that skips the
+  ledger-amendment/digest/entity/reader-recap update makes every future audit — and every
+  future blind review — lie.
+- **Contract-free parallel drafting**: drafting chapters concurrently without beat contracts +
+  the seam audit silently downgrades "continuity guaranteed by the ledger" to "continuity
+  salvaged by blind review". The parallel variant's four conditions (Drafting Modes) are a
+  package, not à la carte.
 - **Padding to budget**: the burn-rate check surfacing R < 0.8 is an instruction to cut threads
   or commission story — never to inflate scenes. The rubric scores padding as a defect at every
   scale.
