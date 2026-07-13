@@ -56,7 +56,8 @@ Identify the decisions that MUST be made before proceeding. These are not trivia
 
 You do NOT ask about:
 - Formatting preferences
-- Word count targets
+- Word count targets (when the brief declares a target scale — as longform briefs do — scale is
+  a hard constraint inherited from the brief; still never a question)
 - Style minutiae
 - Anything the agents can decide themselves
 

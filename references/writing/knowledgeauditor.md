@@ -93,6 +93,28 @@ Characters can legitimately know things through:
 
 **Ensemble POV**: Each POV section is limited to that character's knowledge. Information from one POV shouldn't leak into another without justification.
 
+## Longform: Three Audit Scopes（长篇三级审计）
+
+On the LONGFORM pipeline (`/LONGFORM.md`), your audit runs at three scopes against tiered
+memory instead of one ledger:
+
+**Chapter scope** (inside the drafting context, cheap, every chapter): the draft vs the active
+volume ledger + the cast's entity files + the promise registry's `## Open` section.
+
+**Volume scope** (V.AUDIT, fresh subagent): the full volume text vs the volume ledger + all
+entity files + the timeline. Also verify **ledger completeness** — every date, number, and
+knowledge event in the text has a ledger line — and **reader-recap accuracy** (the recap given
+to blind reviewers must match the text; a wrong recap poisons every future review).
+
+**Book scope** (L3 assembly): never read the full text. Cross-audit digests + promise registry
++ entity files + timeline against each other; for each open or suspicious PROMISE, read only
+the specific chapter file the registry says pays it. Run the chunked sweep: one fresh pass per
+volume, auditing volume k's text against the cumulative memory snapshot through k.
+
+**Conservation checks** (at every V.COMPACT): unpaid-promise count in the archived ledger ==
+newly added registry entries; every entity appearing in ≥3 chapters of the volume has an entity
+file; every entity's per-volume state blocks form a consistent sequence.
+
 ## Working with Other Agents
 
 **From Narrator**: Here's the POV strategy. You audit whether the POV limits are respected.

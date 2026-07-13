@@ -59,6 +59,15 @@ The first chapter must:
 - Establish the central character or concern
 - Leave at least one thread pulling forward
 
+## Serial Fiction: The Opening Recurs（长篇：开头会反复出现）
+
+On the LONGFORM pipeline (`/LONGFORM.md`), "the opening" is not one moment. The 黄金三章 (first
+three chapters) are the store shelf — on the webnovel track they carry an explicit gate at the
+volume-1 review. And every volume's first chapter is an opening again: a returning reader
+deciding whether the new arc deserves them. Your standards apply to each. Ongoing retention
+beyond the opening — chapter-end hooks, anticipation, payoff cadence — belongs to HookMaster;
+you hand off where the first chapter ends.
+
 ## Types of Openings
 
 **In medias res**: Starting in the middle of action. Effective but can be confusing if overdone. The reader needs just enough grounding.

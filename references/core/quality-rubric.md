@@ -1,9 +1,12 @@
 ---
 name: quality-rubric
 description: >
-  The quantified quality gate for AIgora fiction. Six dimensions, ten points each. Defines scoring
-  anchors, the pass threshold (total ≥ 48/60, no dimension < 7), the revision loop (max 3 rounds),
-  and the blind-scoring protocol used in Autopilot mode.
+  The quantified quality gate for AIgora fiction. A Core 4 of dimensions shared by all tracks,
+  plus a Literary module (together: the classic six), ten points each. Defines scoring anchors,
+  the short-form pass threshold (total ≥ 48/60, no dimension < 7), the revision loop (max 3
+  rounds), the blind-scoring protocol, and the track declaration rules. The webnovel track module
+  lives in `references/core/webnovel-rubric.md`; long-form (volume/book) gates live in
+  `references/core/longform-quality-gates.md`.
 ---
 
 # Quality Rubric（质量量表）
@@ -14,7 +17,35 @@ description: >
 into a measurable gate: a draft either passes and ships, or fails with a named weakest dimension
 that the next revision round must target.
 
-## The Six Dimensions
+## Dimension Architecture: Core 4 + Track Module + Level Modules
+
+Dimensions are organized in three layers so that two tracks（文学向 / 网文向）and multiple scales
+(short story → 100万字 long-form) share one system:
+
+- **Core 4** (all tracks, all scales): Structure, Character, Prose, Originality/De-AI.
+- **Track module**: Literary（文学向）adds Emotional Impact + Thematic Depth — together with the
+  Core 4 these are the classic six below, unchanged. Webnovel（网文向）adds 追读动力, 期待感,
+  爽点节奏, 金手指与世界观, and recalibrates the Core 4 anchors —
+  see `references/core/webnovel-rubric.md`.
+- **Level modules** (long-form only): volume-level dimensions（卷结构、长线服务）scored at each
+  volume gate, and book-level dimensions scored at final assembly. Literary-track anchors are in
+  this file (below); webnovel-track anchors in `webnovel-rubric.md`. Gate mechanics are defined
+  authoritatively in `references/core/longform-quality-gates.md`.
+
+**For short-form literary work nothing changes**: six dimensions, total ≥ 48/60, every
+dimension ≥ 7, max 3 revision rounds — exactly as before.
+
+## Track Declaration（轨道声明）
+
+- The track is declared in `brief.md`: `Track（轨道）: 文学向 / 网文向`.
+- If the brief is silent, the EditorInChief infers the track from the ask and logs the inference
+  in `decisions.md`.
+- The track locks at Stage 0. A mid-book track change is a human escalation, never an
+  EditorInChief decision.
+- Reviewers load only their own track's rubric sheets. Webnovel dimensions are never scored on a
+  literary work, and vice versa.
+
+## The Core 4 Dimensions（literary anchors）
 
 Each dimension is scored 0–10. Anchors are written for 4 / 7 / 9 so scorers calibrate against
 descriptions, not against their mood.
@@ -46,16 +77,7 @@ Sentence-level control; rhythm; precision; economy.
   rereading for the wrong reason.
 - **9** — Quotable without embarrassment; rhythm shifts track emotional register; cuts would wound.
 
-### 4. Emotional Impact（情感冲击）
-What the reader actually feels, and whether the story earns it.
-
-- **4** — The reader understands what they are supposed to feel. Understanding is all that happens.
-- **7** — At least one moment genuinely lands (tightness, held breath, rereading a line); the
-  ending's feeling persists past the last paragraph.
-- **9** — The story changes the reader's temperature; the emotion is complex (grief with relief,
-  love with resentment), not a single note.
-
-### 5. Originality / De-AI（原创性 / 去AI味）
+### 4. Originality / De-AI（原创性 / 去AI味）
 Distance from both genre default and machine default.
 
 - **4** — The premise or its execution could be autocompleted; hedged prose, symmetric paragraphs,
@@ -64,6 +86,17 @@ Distance from both genre default and machine default.
   risk; no AI-tell survives a hostile read.
 - **9** — A reader could not guess the premise from the first page, nor the ending from the
   premise—yet both feel inevitable afterward.
+
+## The Literary Module（文学模块）
+
+### 5. Emotional Impact（情感冲击）
+What the reader actually feels, and whether the story earns it.
+
+- **4** — The reader understands what they are supposed to feel. Understanding is all that happens.
+- **7** — At least one moment genuinely lands (tightness, held breath, rereading a line); the
+  ending's feeling persists past the last paragraph.
+- **9** — The story changes the reader's temperature; the emotion is complex (grief with relief,
+  love with resentment), not a single note.
 
 ### 6. Thematic Depth（主题深度）
 What the story knows; whether it thinks or merely gestures.
@@ -75,7 +108,7 @@ What the story knows; whether it thinks or merely gestures.
 - **9** — The story earns an insight that cannot be paraphrased without loss; opposing readings
   are both supported and both painful.
 
-## The Gate
+## The Gate（short form）
 
 | Verdict | Condition | Action |
 |---------|-----------|--------|
@@ -85,6 +118,95 @@ What the story knows; whether it thinks or merely gestures.
 
 The revision cap is not bureaucracy. Rounds 4+ historically trade voice for smoothness: scores on
 Prose creep up while Originality decays. Three rounds, then a human.
+
+**Long-form gates are different**: works on the LONGFORM pipeline are gated per volume and at
+book assembly, with their own thresholds, revision caps, and quality-debt rules. Those gates are
+defined authoritatively in `references/core/longform-quality-gates.md`; the tables there win over
+anything implied here.
+
+## Anti-Padding at Every Scale（反注水条款）
+
+Anti-padding is per-scene, not per-book. At any target length every scene must earn its place; a
+100万字 brief is met by more story — more arcs, more consequences — never by thinner prose.
+Padding remains a scoring offense at every scale, and target scale is a brief constraint, not a
+quality lever. (See the EditorInChief's Scale Doctrine: length is achieved in units of story
+arcs, never sentences.)
+
+## Long-Form Level Modules — Literary Track Anchors
+
+Scored in addition to the Core 4 + Literary module at the gates defined in
+`longform-quality-gates.md`. Webnovel-track anchors for the same dimensions are in
+`webnovel-rubric.md`.
+
+### Volume dimensions（卷级维度，scored at every volume gate）
+
+**V1. Volume Arc（卷结构）**
+- **4** — The volume is a pocket of chapters: no volume-level question, no turn; it ends wherever
+  the chapter count ran out.
+- **7** — The volume opens a volume-level question, turns in the middle, and closes with a climax
+  that resolves it while leaving a book-level thread pulling forward; delete this volume and what
+  follows breaks.
+- **9** — The volume's arc meshes with the book's arc: its climax is simultaneously a step-change
+  in the book-level stakes, and the volume's shape itself carries meaning.
+
+**V2. Serial Service（长线服务）**
+- **4** — An island volume: advances no book-level thread, plants nothing, or contradicts what
+  came before.
+- **7** — Advances at least one book-level thread, pays every promise that came due this volume,
+  plants ≥2 setups for later volumes, zero contradictions with prior volumes.
+- **9** — This volume rewrites the reader's understanding of earlier volumes (reread value); due
+  promises are paid above expectation.
+
+### Book dimensions（书级维度，scored at book assembly, 6 × 10）
+
+**B1. Macro Structure（卷级结构）**
+- **4** — Volumes could be reordered or deleted; the middle third sags; climaxes repeat at the
+  same intensity.
+- **7** — Every volume is load-bearing; volume climaxes escalate; no sagging middle; the whole is
+  a single causal architecture.
+- **9** — The book's macro shape is itself expressive; the sequence of volume arcs enacts the
+  theme.
+
+**B2. Promise Payoff（伏笔兑现）**
+- **4** — Major setups forgotten or paid perfunctorily; the reader's held questions dissolve
+  rather than resolve.
+- **7** — ≥95% of registered promises paid or explicitly, consciously released; the major
+  promises pay on schedule and in proportion to their buildup.
+- **9** — Payoffs braid: late payoffs recontextualize early ones; in hindsight every plant looks
+  inevitable, none looked like a plant.
+
+**B3. Character Continuity（人物长线）**
+- **4** — Characters reset between volumes; growth is stated, then ignored; late-book behavior
+  contradicts early-book psychology without cause.
+- **7** — Arc milestones are hit; change is cumulative and each step costs something; no
+  flanderization of the supporting cast.
+- **9** — Ten volumes of change feel like one life: the person at the end contains every prior
+  version, and the reader can feel the distance traveled.
+
+**B4. Tension Curve（张力曲线）**
+- **4** — Tension repeats one note at one amplitude; stakes inflate without deepening; the reader
+  acclimatizes and stops feeling it.
+- **7** — Tension deepens and complexifies across volumes rather than merely repeating louder;
+  rest volumes are placed deliberately; the final movement is the book's true peak.
+- **9** — The curve is felt in the body across a million characters: each escalation re-prices
+  everything before it, and the quietest chapter late in the book carries more charge than the
+  loudest chapter early.
+
+**B5. Cast Management（阵容管理）**
+- **4** — Characters accumulate without control; introductions blur; people vanish without
+  explanation and return without memory.
+- **7** — Introduction rate is controlled; exits are explicit; returning characters are
+  remembered by text and reader alike.
+- **9** — The cast breathes as a system: every named figure earns their page-time, and the social
+  world feels larger than the pages shown.
+
+**B6. Resolution（收束）**
+- **4** — The ending resolves the last volume, not the book; the premise's oldest debts go
+  unpaid.
+- **7** — The ending pays the premise-debt of the whole book: the questions of volume one are
+  answered by the person the protagonist became, and the feeling persists past the last page.
+- **9** — The ending is both unguessable from the premise and, in hindsight, the only ending the
+  book was ever paying for — at full million-character weight.
 
 ## Blind-Scoring Protocol (Autopilot Mode)
 
@@ -101,6 +223,10 @@ justified. In Autopilot mode:
 4. Continuity/knowledge violations found by any reviewer are Must Fix regardless of scores.
 5. All three raw reports are saved to `critiques/` in the project directory; the median sheet goes
    in `scores.md`.
+
+**Long-form variant**: at volume gates the "draft text" is the volume text plus the reader-facing
+recap（读者向前情提要）— and nothing else; at book assembly it is digests + samples. The exact
+reviewer packets, per-track lens tables, and thresholds are in `longform-quality-gates.md`.
 
 ## Score Sheet Format
 
@@ -121,11 +247,15 @@ justified. In Autopilot mode:
 **Must Fix carried forward**: ...
 ```
 
+Long-form volume sheets append the volume dimensions (and, on the webnovel track, replace the
+Literary module with the webnovel module — sheet totals per `longform-quality-gates.md`).
+
 ## Relationship to Other Agents
 
 | Agent | Relationship |
 |-------|--------------|
 | EditorInChief | Owns the gate; picks revision targets from the weakest dimensions |
 | FirstReader / Challenger / AIDetox | Their lenses become the three blind reviewers |
+| SerialArchitect / HookMaster | Long-form & webnovel lenses; see `longform-quality-gates.md` |
 | Gatekeeper | Presents the verdict at the Critique → Revision checkpoint |
 | ProsePolisher etc. | Execute the targeted revision; they never score their own work |

@@ -63,6 +63,12 @@ Fiction writing mode activates when the task involves:
 - Scene writing, dialogue writing, chapter drafting
 - Revision, editing, polishing of fiction
 
+**Longform sub-mode**: 长篇, 百万字, 网文长篇, webnovel, million-character novel — or any work
+longer than ~30 chapters / ~5万字 — additionally activates the LONGFORM pipeline: read
+`/LONGFORM.md`. In longform mode **SerialArchitect is mandatory** (a 7th writing agent on top of
+the 6 below), and on the webnovel track（网文向, declared in the brief）the stage selections use
+the webnovel variants listed after the stage tables.
+
 ### Writing Agents: Minimum 10 Per Round
 
 When fiction mode is active: **Core 6 + Writing 10 = minimum 16 agents per round**
@@ -119,6 +125,25 @@ The remaining 4 agents are selected based on the **writing stage**:
 4. PaceMaster (节奏调整)
 
 **Backup**: RelationshipMapper, Narrator
+
+### Longform & Webnovel Variants（长篇/网文轨变体）
+
+When the LONGFORM pipeline is active (`/LONGFORM.md`):
+
+- **SerialArchitect** (`references/writing/serialarchitect.md`) joins every round as a mandatory
+  7th writing agent — volume decomposition, promise scheduling, escalation architecture. It
+  speaks in the Generative slot, after PlotArchitect.
+- On the **webnovel track（网文向）**, **HookMaster** (`references/writing/hookmaster.md`)
+  replaces one stage pick per the variant table below; the displaced agent becomes backup:
+
+| Stage | Webnovel priority 4 | Displaced to backup |
+|-------|---------------------|---------------------|
+| Conception | Muse, WorldBuilder, SerialArchitect, HookMaster | PlotArchitect, RelationshipMapper |
+| Drafting | DialogueMaster, ScenePainter, HookMaster, PaceMaster | Narrator |
+| Revision | HookMaster, PaceMaster, ProsePolisher, OpeningHook | SymbolWeaver |
+
+HookMaster is **webnovel track only** — never selected, and its dimensions never scored, on the
+literary track.
 
 ### Writing Agent Speaking Order
 
@@ -179,6 +204,8 @@ Beyond the Core Six and Writing Agents, you may add specialist agents based on t
 
 - **Historical fiction**: HistoricalConsultant, PeriodVoice, MaterialCulture
 - **Science fiction**: TechExtrapolator, HardSFChecker, ConceptEngine
+- **Webnovel / serial fiction**: JinYong (`references/writers/jin-yong.md`) and Dickens
+  (`references/writers/dickens.md`) — masters of serialized long-form
 - **Thinkers**: Plato, Nietzsche, Foucault, LiuCixin, JinYong, etc.
 
 Specialist agents speak in the flexible middle zone. They do not displace the Core Six or mandatory Writing Agents.

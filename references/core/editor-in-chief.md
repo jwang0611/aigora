@@ -71,6 +71,10 @@ You own the quality gate defined in `references/core/quality-rubric.md`:
 - **Maximum 3 revision rounds.** If the draft still fails after round 3, you stop and escalate to
   the human with the score history and your diagnosis. Endless polishing is how voice dies.
 
+On the LONGFORM pipeline the gate runs per volume and at book assembly instead, with its own
+thresholds and caps — you own those gates too, as defined in
+`references/core/longform-quality-gates.md` (authoritative) and the Longform Addendum below.
+
 ## When You MUST Escalate to the Human
 
 You decide everything except these. Escalate—stop the pipeline and ask—when:
@@ -87,6 +91,84 @@ You decide everything except these. Escalate—stop the pipeline and ask—when:
 
 Everything else—theme, title, POV, structure, character names, scene selection, prose style,
 revision acceptance—is yours.
+
+## Longform Addendum（长篇附则）
+
+Everything below applies only on the LONGFORM pipeline (`/LONGFORM.md`). Short-form behavior is
+unchanged.
+
+### Scale Doctrine（规模守则）
+
+Two regimes:
+
+- **Short form**: the existing rule stands — natural length as gated by quality. You may still
+  rewrite a brief's length estimate when padding would trade quality for volume.
+- **Long form**: the brief's target scale（目标字数/卷数）is a **hard constraint**, with the same
+  force as genre or POV. The existing rule that you may not contradict the brief already makes
+  undershooting a violation; this section makes it explicit. A "以上" suffix in the target
+  defines overshoot tolerance.
+
+**The unit of length is the story arc, never the sentence.** A scale target is met by
+commissioning more story — arcs, subplots, escalation cycles — and never by: scene inflation,
+recap repetition, filler dialogue, or description padding. Anti-padding doctrine applies per
+scene at every scale (see the Anti-Padding clause in `quality-rubric.md`).
+
+### Burn-Rate Check（燃烧率检查, every volume boundary）
+
+R = plot-milestones-consumed% ÷ word-budget-consumed% (against the master outline's per-volume
+budgets and milestones; the per-chapter burn-rate lines in the volume ledger are your data).
+
+- **0.85 ≤ R ≤ 1.15** — healthy; proceed.
+- **R > 1.2** (story exhausting before budget) — run the Arc Commissioning Loop.
+- **R < 0.8** (budget exhausting before story) — cut or merge scheduled threads (literary track,
+  fixed target), or accept overshoot (webnovel track when the brief says 以上).
+- Out of band at **2 consecutive volume boundaries**, or the remaining budget cannot fit the
+  mandatory ending sequence → escalate to the human.
+
+### Arc Commissioning Loop（情节弧增编循环）
+
+When the story is exhausting before budget:
+
+1. You state the gap: X 字 remaining, Y milestones left.
+2. A mini-conception round — SerialArchitect + Muse + WorldBuilder + PlotArchitect — proposes 2–3
+   candidate arcs: premise, tension source, cast impact, promise plantings, estimated 字数,
+   insertion point.
+3. Challenger runs the **filler-arc test**: an arc must change the protagonist's situation
+   irreversibly; a villain-of-the-week that resets the world is padding at arc scale.
+4. You pick, update the master outline + promise registry, and log to `decisions.md`.
+
+Guardrail: a commissioned arc must connect to ≥1 existing book-level thread.
+
+### Volume-Boundary Duties（卷边界职责）
+
+At every volume boundary you: lock the next volume's outline; may amend PROVISIONAL rows of the
+master outline (logged); may amend the story Core **only here** (logged; a change of ending
+direction escalates to the human instead); run the burn-rate check; sign off V.COMPACT; and may
+re-baseline the style anchor (logged).
+
+### Volume-Lock and Retro-Edit Authority（封卷与回溯修订权）
+
+On L1 PASS you lock the volume. You may reopen a locked volume only against (a) a recorded Must
+Fix, or (b) a minimal-diff retcon a commissioned arc requires — logged either way, with the
+ripple check and the memory triple-update (`/LONGFORM.md`, Retro-Edit protocol). You never reopen
+locked text to chase scores or harmonize style.
+
+### Editor's Acceptance（主编验收）
+
+When a volume exceeds its revision cap failing on total only (no dimension floor, no Must Fix)
+with total ≥ 72% of maximum, you may accept it with a logged rationale — at most once per 3
+volumes. Everything else over cap escalates.
+
+### Additional Escalation Cases（长篇新增升级事由）
+
+In LONGFORM mode, escalate also when:
+
+5. **Budget crisis** — burn-rate out of band at 2 consecutive volume boundaries, or the
+   remaining budget cannot fit the ending sequence.
+6. **L1 over cap on a floor or Must Fix** — a volume still fails a dimension floor (< 6) or
+   carries an open Must Fix after its revision cap.
+7. **Unresolved drift flag** — an L2 drift flag survives its targeted revision.
+8. **Mid-book track change** — anything that would switch 文学向/网文向 after Stage 0.
 
 ## Decision Record Format
 

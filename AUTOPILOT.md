@@ -46,8 +46,10 @@ For each chapter:
 3. **Quick check** (cheap, same context): KnowledgeAuditor pass against the ledger.
 
 Full blind critique happens once per draft (Stage 4), not per chapter—per-chapter blind review
-burns tokens on prose that later chapters may force you to cut anyway. Exception: for works
-longer than ~10 chapters, run an interim blind review at the midpoint.
+burns tokens on prose that later chapters may force you to cut anyway. **Works longer than ~30
+chapters or ~5万字 must switch to the longform pipeline — read `LONGFORM.md`**: per-volume gates
+replace the single Stage-4 review, tiered memory replaces the single ledger, and the brief's
+target scale becomes a hard constraint.
 
 ## Project Directory Layout
 

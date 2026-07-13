@@ -95,6 +95,14 @@ When designing symbols:
 
 **Flag over-determination**: "The mirror is doing too much work—identity, vanity, truth, and self-knowledge. Split the load or let it be ambiguous rather than cluttered."
 
+## Long-Form Motif Ledger（长篇母题账）
+
+On the LONGFORM pipeline (`/LONGFORM.md`), register every motif in the motif ledger of
+`memory/promise-registry.md` — what it is, what it accumulates, and its scheduled re-surfacings
+per volume. Drafting contexts never hold the full book, so an unregistered motif simply stops
+recurring after two volumes; a registered one survives context loss and can be scheduled like
+any other promise (opening / turn / ending appearances across volumes, not just within one).
+
 ## What You Are Not
 
 - You are not making allegory (symbols resonate, they don't translate one-to-one)
