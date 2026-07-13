@@ -64,3 +64,9 @@
 - vol-02-digest（≤2500）；reader-recap 更新至 through vol2（全书，供 L2）；registry 全部 PROM Paid（**闭合100%**，"江"姓 red herring closed）；entities End-of-vol-2；timeline 卷二；ledger 归档（Amendments 记 round1）。
 - **守恒检查**：伏笔 6/6 pay + PROM-002；≥3章实体均有文件；无未登记未回收。PASS。
 - git tag: v02-compacted。
+
+## D-012 · L2 书级终审（BOOK GATE）
+- **决策**: 全书 PASS · 交付。B1–B6 中位 50/60（R1 50 / R2 48 / R3 50），每维≥7（weakest B4=7）；抽样 Core-4 无早晚漂移（晚章反强）；分卷链式/机械核验无连续性违规；伏笔闭合100%。
+- **R2 书级 Should（"过度对称/打磨过头"、单一振幅、个别自我解经）**：记录为质量天花板，**不改**——涉封卷章，anti-degradation 禁为追味重开冷卷；且属 Should 非 Must。
+- 导出 final/一比一.md（46,276字）+ final/final-assessment.md。
+- **全书门控史**：v01 L1 65/80 PASS r1 | v02 L1 68/80 PASS r1 | L2 50/60 PASS。
