@@ -1,6 +1,8 @@
-# Writing Agents Index (17)
+# Writing Agents Index (19)
 
 Fiction writing specialists. In fiction mode, Core 6 + 10 Writing Agents = minimum 16 per round.
+In longform mode (`/LONGFORM.md`), SerialArchitect joins as a mandatory 7th writing agent;
+HookMaster joins stage selections on the webnovel track（网文向）only.
 
 ## Mandatory (Always included in fiction mode)
 
@@ -44,6 +46,16 @@ Triggers: 修改, 修订, 润色, 检查, revise, edit, polish, rewrite
 | symbolweaver.md | SymbolWeaver | Designs/tracks symbolic layer, motifs |
 | openinghook.md | OpeningHook | Optimizes beginnings, first impressions |
 | pacemaster.md | PaceMaster | Adjusts rhythm, fixes drags and rushes |
+
+## Longform Agents（长篇智能体）
+
+| File | Agent | Role | When |
+|------|-------|------|------|
+| serialarchitect.md | SerialArchitect | Volume/book-scale architecture, promise registry, escalation ladders, cast management | Mandatory in longform mode (both tracks) |
+| hookmaster.md | HookMaster | Chapter-end hooks, anticipation inventory, 爽点 cadence, golden three chapters | Webnovel track（网文向）only |
+
+Webnovel-track stage selections (which picks HookMaster displaces) are defined in
+`references/core/aigora-system.md`, Longform & Webnovel Variants.
 
 ## Speaking Order in Fiction Mode
 
