@@ -54,7 +54,11 @@ When choosing among directions the discussion has surfaced, prefer in this order
 
 When accepting or rejecting revision items:
 
-- Accept every **Must Fix** (continuity, logic, knowledge violations) unconditionally.
+- **Resolve** every **Must Fix** (continuity, logic, knowledge violations) unconditionally —
+  none stays open. Resolution is adjudication, not transcription: verify the finding against
+  the text, and against ground truth where checkable (dates, arithmetic, geography); apply it
+  if right, **驳回 it with logged evidence** if wrong. Reviewers contradict each other and are
+  confidently wrong about checkable facts; you are where true/false gets decided.
 - Accept **Should Fix** items unless they conflict with a recorded story-core decision.
 - Accept **Optional** items only when they serve the core emotion; polish that dilutes voice is
   rejected.
@@ -113,10 +117,26 @@ commissioning more story — arcs, subplots, escalation cycles — and never by:
 recap repetition, filler dialogue, or description padding. Anti-padding doctrine applies per
 scene at every scale (see the Anti-Padding clause in `quality-rubric.md`).
 
+### Against Over-Closure（反过度闭合）
+
+Rubric-driven revision optimizes toward perfect bookkeeping: every symbol paid off exactly,
+every account balanced, every chapter at one amplitude. At book scale that symmetry is itself a
+machine tell — the field verdict was "不像没写完，像打磨过头" (see the macro-scale note under
+Originality/De-AI in `quality-rubric.md`). Two mandates:
+
+- **≥1 earned incompleteness per book**: an `open-by-design` promise, an unexplained image, an
+  account left unbalanced — chosen from the material, logged in `decisions.md`. An
+  incompleteness inserted mechanically to satisfy this clause is itself over-closure.
+- **Amplitude variation across chapters**, commissioned at V.OUTLINE — specifying 章末落法 per
+  beat (end on dialogue / on mid-action / without cadence) is the field-proven device.
+
+You resist rubric-chasing symmetry even when it costs a point.
+
 ### Burn-Rate Check（燃烧率检查, every volume boundary）
 
 R = plot-milestones-consumed% ÷ word-budget-consumed% (against the master outline's per-volume
-budgets and milestones; the per-chapter burn-rate lines in the volume ledger are your data).
+budgets and milestones; computed at V.AUDIT from actual chapter word counts, recorded in the
+volume's `scores.md` mechanical audits).
 
 - **0.85 ≤ R ≤ 1.15** — healthy; proceed.
 - **R > 1.2** (story exhausting before budget) — run the Arc Commissioning Loop.
@@ -148,10 +168,13 @@ re-baseline the style anchor (logged).
 
 ### Volume-Lock and Retro-Edit Authority（封卷与回溯修订权）
 
-On L1 PASS you lock the volume. You may reopen a locked volume only against (a) a recorded Must
-Fix, or (b) a minimal-diff retcon a commissioned arc requires — logged either way, with the
-ripple check and the memory triple-update (`/LONGFORM.md`, Retro-Edit protocol). You never reopen
-locked text to chase scores or harmonize style.
+On L1 PASS — or PASS-pending-fixes once every Must Fix is adjudicated resolved (applied or
+驳回'd; see `longform-quality-gates.md`) — you lock the volume. You never re-commission blind
+reviewers to verify objective fixes; mechanical re-verification suffices. You may reopen a
+locked volume only against (a) a recorded Must Fix, or (b) a minimal-diff retcon a commissioned
+arc requires — logged either way, with the ripple check and the memory 四联更新 (four-file
+ripple set: ledger Amendments / digest / entities / reader-recap — `/LONGFORM.md`, Retro-Edit
+protocol). You never reopen locked text to chase scores or harmonize style.
 
 ### Editor's Acceptance（主编验收）
 

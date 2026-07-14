@@ -133,5 +133,9 @@ Say "继续自动" to hand the pen back to the EditorInChief.
   "no dimension < 7" plus the Originality dimension exist to catch this; the 3-round cap ends it.
 - **Ledger drift**: skipping ledger updates "just this chapter" is how chapter 7 contradicts
   chapter 2. The chapter loop is not optional.
+- **Parallel drafting**: drafting chapters concurrently breaks ledger-as-memory — chapter N
+  never sees chapter N−1. Short form always drafts serially. Longform sanctions a parallel
+  variant only with per-beat state contracts + a mandatory seam audit (`LONGFORM.md`,
+  Drafting Modes).
 - **Committee prose**: applying every reviewer suggestion. The EditorInChief accepts and rejects;
   rejection reasons go in `decisions.md`.

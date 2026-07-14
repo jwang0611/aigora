@@ -45,13 +45,12 @@ are fixed immediately in-context.
    - Hook type not repeated more than 2 consecutive chapters（五型：悬念/危机/反转/期待/情感）.
    - ≥1 nameable 爽点 in every rolling 3-chapter window.
    - The chapter advances ≥1 registered thread.
-3. **Burn-rate line**: append one line to the volume ledger — cumulative 字数 written vs plot
-   milestones consumed (consumed by the EditorInChief's burn-rate check at the volume boundary).
 
 ## L1 — Per-Volume Blind Review（卷级盲评：真正的门）
 
-Runs at every volume boundary, after the volume audit (V.AUDIT) confirms the ledger and the
-reader-facing recap are accurate.
+Runs at every volume boundary, after the volume audit (V.AUDIT) — preceded, for any
+parallel-drafted volume, by the seam audit (`/LONGFORM.md`, Drafting Modes) — confirms the
+ledger and the reader-facing recap are accurate.
 
 ### Reviewer packet（穷举式——未列出即禁止）
 
@@ -85,19 +84,49 @@ Fix / Optional list. Median-of-3 per dimension is recorded in the volume's `scor
 
 - **SerialArchitect registry audit**: every promise due this volume paid or formally deferred
   (with a logged reason); character-arc milestones hit; escalation-ladder position matches the
-  master outline; cast introduction/retirement rates within policy; burn-rate within band.
+  master outline; cast introduction/retirement rates within policy; burn-rate within band
+  (**computed at V.AUDIT from actual chapter word counts vs the master outline's per-volume
+  milestones — no per-chapter tracking**; recorded in `scores.md` mechanical audits as R=N.NN).
 - **KnowledgeAuditor recap accuracy check**: the reader-facing recap against the volume text —a
   wrong recap poisons every future review, so the recap is itself gated.
 
-Any registry, ledger, or recap violation is an **unconditional Must Fix**, regardless of scores.
+Any registry, ledger, or recap violation is an **unconditional Must Fix** (gate-blocking;
+adjudicated per Must Fix semantics below), regardless of scores.
+
+### Must Fix semantics（门闩，不是补丁）
+
+A Must Fix is an **unconditional gate-blocker**: no volume locks and no book passes while one is
+open. It is **not an auto-applied edit**. Every Must Fix is resolved by EditorInChief
+adjudication:
+
+1. **Verify the finding against the text** — and against **ground truth** when the fact is
+   externally checkable (calendar conversions, arithmetic, geography, historical anchors).
+2. **Confirmed** → targeted fix.
+3. **Wrong** → **驳回 with logged evidence** in `decisions.md`. A 驳回'd Must Fix counts as
+   resolved.
+
+Independent reviewers can assert opposite "corrections" of the same fact with equal confidence
+(field case: two R3 reviewers produced contradictory lunar-date conversions for the same date;
+auto-applying the later one would have corrupted correct text). Adjudication, never
+transcription.
 
 ### Gate conditions（L1）
 
 | Verdict | Literary（8 dims / 80） | Webnovel（10 dims / 100） | Action |
 |---------|--------------------------|----------------------------|--------|
 | **PASS** | Median total ≥ 60 AND no dimension < 6 AND zero Must Fix | Median total ≥ 75 AND no dimension < 6 AND zero Must Fix | **Volume-lock（封卷）**; record quality debts; run V.COMPACT; proceed |
-| **REVISE** | Anything less | Anything less | Targeted revision of weakest dimensions; re-score with fresh reviewers |
-| **Cap** | Volume 1: 3 rounds. Volumes 2+: 2 rounds | Same | See over-cap handling |
+| **PASS-pending-fixes（条件过门）** | Median total ≥ 60 AND no dimension < 6, **only Must Fix items open** | Median total ≥ 75 AND no dimension < 6, **only Must Fix items open** | EditorInChief adjudicates each Must Fix (apply or 驳回) → targeted fixes → **mechanical re-verification only** (KnowledgeAuditor diff audit + recap accuracy re-check + pattern/grep checks) — **no fresh-reviewer re-score** → volume-lock, V.COMPACT |
+| **REVISE** | Median total < 60 OR any dimension < 6（taste failure） | Median total < 75 OR any dimension < 6 | Targeted revision of weakest dimensions; **full re-score** |
+| **Cap** | Volume 1: 3 rounds. Volumes 2+: 2 rounds. **Only re-scored rounds count; PASS-pending-fixes consumes no round** | Same | See over-cap handling |
+
+- **Re-score defined**: a complete new L1 round — fresh 3-reviewer packets, new sheets appended
+  to `scores.md` as round N+1, counted against the cap. Reserved for taste failures; objective
+  fixes are verified mechanically, not re-tasted.
+- **Recap re-sync rule**: any revision (any round, or any Must Fix resolution) that changes a
+  reader-visible fact updates `memory/reader-recap.md` in the same commit, and KnowledgeAuditor
+  re-runs the recap accuracy check on the diff **before 封卷/V.COMPACT**.
+- Should Fix adoption at PASS-pending-fixes stays the EditorInChief's call per the existing
+  acceptance rules; quality debts are recorded exactly as at PASS.
 
 - **Quality debts（质量债）**: any dimension passing at exactly 6 is recorded as a debt in
   `scores.md`. Max 2 debts per volume. The same dimension may not be in debt in two consecutive
@@ -144,8 +173,14 @@ top-5-cast voice drift. All violations = Must Fix.
 - Book dimensions (median-of-3): total ≥ 48/60 AND every dimension ≥ 7.
 - Zero sweep Must Fix outstanding.
 - No unresolved drift flag.
-- **Promise closure ≥ 95%**: registered promises paid, or abandoned with a logged EditorInChief
-  decision; the webnovel track may mark ≤ 3 promises "deferred-to-sequel" with a logged rationale.
+- **Promise closure ≥ 95%**: registered promises paid, abandoned with a logged EditorInChief
+  decision, or marked **`open-by-design`（有意留白, EditorInChief-logged — a conscious release,
+  counting toward the 95%）**; the webnovel track may mark ≤ 3 promises "deferred-to-sequel"
+  with a logged rationale.
+
+PASS-pending-fixes semantics apply at L2 too: when the book dimensions pass and only
+sweep/mechanical Must Fixes are open, resolution is adjudication + targeted retro-edits +
+mechanical re-verification; the book dimensions are not re-scored.
 
 L2 revision is always **targeted** — named volumes/chapters, entering locked volumes only via the
 Retro-Edit protocol (`/LONGFORM.md`). Max 2 rounds, then escalate to the human with the full
@@ -161,8 +196,9 @@ score history and the EditorInChief's diagnosis.
   by a commissioned arc. Explicitly forbidden: reopening to chase scores, to harmonize style, or
   to apply later reviewers' taste to earlier volumes.
 - **Ripple check（涟漪检查）**: every reopened edit gets a KnowledgeAuditor audit of the diff
-  against the ledger and downstream digests; the touched volume's digest is regenerated; locked
-  text is never re-scored.
+  against the ledger and downstream digests; the touched volume's digest is regenerated **and
+  `memory/reader-recap.md` re-synced whenever reader-visible facts changed (the 四联更新,
+  `/LONGFORM.md`)**; locked text is never re-scored.
 - **Debts are paid forward**: quality debts are fixed in the next volume's drafting, never by
   polishing locked text.
 - **Voice defenses**: R2 anchor comparison at every L1; mid-volume drift spot-check (chapter ~13
@@ -184,7 +220,8 @@ Volume gate（`volumes/vM/scores.md`）:
 | Serial Service | ... |
 | **Total (of medians)** | | | | **NN/80 or NN/100** |
 
-**Verdict**: PASS / REVISE (weakest: dimension) / ESCALATE
+**Verdict**: PASS / PASS-pending-fixes（list open Must Fix IDs; 机械复核后封卷，不重评）/
+REVISE (weakest: dimension) / ESCALATE
 **Quality debts recorded**: <dimension @6, ...>
 **Must Fix carried forward**: ...
 **Mechanical audits**: registry PASS/FAIL, recap PASS/FAIL, burn-rate R=N.NN

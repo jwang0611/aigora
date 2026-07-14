@@ -17,7 +17,15 @@ Format, one line per fact:
 `[ch NNN] <fact>` — established facts (dates, ages, injuries, objects, distances, rules invoked)
 `[ch NNN] KNOWS: <who> knows <what> (learned how)` — knowledge states
 `[ch NNN] PROMISE: <setup the reader will expect paid off>` — Chekhov items; ✓ when paid
-`[ch NNN] BURN: <cumulative 字数> / milestones consumed: <M1 ✓, M2 …>` — one per chapter
+
+Two sanctioned organizations — pick one per volume:
+(a) the typed sections below (cheapest for compaction triage on serial volumes);
+(b) **per-chapter blocks** (`## ch NNN` headings with typed lines inside) — field-proven
+convenient for seam checking on parallel-drafted volumes.
+Either way, every line MUST keep its `[ch NNN]` tag and type marker (`KNOWS:`/`PROMISE:`), or
+compaction triage and the mechanical audits break. V.AUDIT conclusions may be appended as a
+dedicated section at the end. (Burn-rate is NOT tracked here — it is computed at V.AUDIT from
+actual chapter word counts.)
 
 ---
 
@@ -26,8 +34,6 @@ Format, one line per fact:
 ## Knowledge States
 
 ## Promises to the Reader
-
-## Burn-Rate Lines
 
 ## Amendments（回溯修订注记 — only after archival, from retro-edits）
 

@@ -1,9 +1,14 @@
 # Style Anchor — <题名>
 
-<!-- Cap: 1,500字. Selected by the EditorInChief from GATE-PASSED volume-1 chapters (published
-     text — blindness-safe; R2 receives this at every L1 review and scores drift-from-anchor).
-     Loaded in EVERY drafting context. Re-baselined only by the EditorInChief, only at volume
-     boundaries, logged in decisions.md. -->
+<!-- Cap: 1,500字 (measured at every V.COMPACT, blocking). Selected by the EditorInChief from
+     GATE-PASSED volume-1 chapters (published text — blindness-safe; R2 receives this at every
+     L1 review and scores drift-from-anchor). Loaded in EVERY drafting context. Re-baselined
+     only by the EditorInChief, only at volume boundaries, logged in decisions.md.
+
+     VOL-1 BOOTSTRAP: this file does not exist until v01 V.COMPACT. During vol-1 drafting the
+     EditorInChief drafts ch001 in the main context as the VOICE SEED; other vol-1 drafting
+     contexts load ch001's full text in this file's manifest slot (field-proven pattern). The
+     formal anchor is then selected from gate-passed vol-1 text. -->
 
 ## Anchor passage 1 — narration（叙述, ~300–500字）
 > <verbatim excerpt, with [vol/ch] source>
