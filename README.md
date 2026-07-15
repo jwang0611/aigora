@@ -171,6 +171,10 @@ Specialists are selected based on topic relevance and speak in the flexible midd
 
 > **AIgora is a discussion partner, not an automation tool.**
 
+> **Field-tested playbook**: stage-by-stage recommendations calibrated by three end-to-end
+> runs — where human attention pays, what can be relaxed for speed, and preset configurations
+> for short-form vs long-form — see [`PLAYBOOK.md`](PLAYBOOK.md).
+
 ### 1. Engage in the Discussion
 
 AIgora works best when you treat it as an intellectual dialogue:
