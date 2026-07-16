@@ -504,6 +504,7 @@ Total: 9 agents
 | Core System | `references/core/aigora-system.md` | 1 |
 | Autopilot Pipeline | `AUTOPILOT.md` | 1 |
 | Longform Pipeline | `LONGFORM.md` | 1 |
+| Field Playbook (advisory presets, human touchpoints) | `PLAYBOOK.md` | 1 |
 | Core 6 | `references/core/` | 6 |
 | Gatekeeper | `references/core/gatekeeper.md` | 1 |
 | EditorInChief | `references/core/editor-in-chief.md` | 1 |
